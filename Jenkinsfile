@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Ray-yan101/mvnn.git'
+                git branch: 'master', url: 'https://github.com/Vinayak-Rajput/My-Maven-App'
             }
         }
 
@@ -22,7 +22,6 @@ pipeline {
                 sh 'mvn test'  // Run unit tests
             }
         }
-    
 
         
         
@@ -32,6 +31,17 @@ pipeline {
                 // Start the JAR application
                 sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
             }
+        }
+
+        
+    }
+
+    post {
+        success {
+            echo 'Build and deployment successful!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }
