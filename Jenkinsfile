@@ -22,6 +22,7 @@ pipeline {
                 sh 'mvn test'  // Run unit tests
             }
         }
+    
 
         
         
@@ -30,4 +31,7 @@ pipeline {
             steps {
                 // Start the JAR application
                 sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
-…
+            }
+        }
+    }
+}
